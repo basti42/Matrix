@@ -10,10 +10,11 @@ int main(int argc, char** argv)
     m.show();
 
     std::cout << std::endl;
-    Matrix t = m.T();
-    t.show();
+    // Matrix t = m.T();
+    // t.show();
 
     Matrix o = Matrix(5,1,true);
+    o.show();
 
     std::cout << std::endl;
     std::cout << "Dot Product" << std::endl;

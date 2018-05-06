@@ -174,12 +174,23 @@ void Matrix::operator-(const double a)
 }
 
 // Matrix multiplication (dot product)
+// standardalgorithm as descriobed in wikipedia
 Matrix Matrix::dot(Matrix &other)
 {
     Matrix product = Matrix(this->num_rows, other.num_cols, false);
-    /*
-    This does not yet work
-    */
+
+    for (int i=0;i<product.num_rows; i++)   // rows of product
+    {
+        for (int k=0;k<product.num_cols; k++)   // cols of product
+        {
+            for (int j=0;j<this->num_cols; j++) // cols of this / rows of other
+            {
+                product.values[i][k] += product.values[i][k] +
+                                        this->values[i][j] * other.values[j][k];
+            }
+        }
+    }
+
     return product;
 
 }
