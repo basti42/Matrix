@@ -29,5 +29,7 @@ class Matrix
         void operator+(double);
         void operator-(int);
         void operator-(double);
+        // matrix multiplication
+        Matrix dot(Matrix&);
 };
 #endif

@@ -172,3 +172,14 @@ void Matrix::operator-(const double a)
         }
     }
 }
+
+// Matrix multiplication (dot product)
+Matrix Matrix::dot(Matrix &other)
+{
+    Matrix product = Matrix(this->num_rows, other.num_cols, false);
+    /*
+    This does not yet work
+    */
+    return product;
+
+}
