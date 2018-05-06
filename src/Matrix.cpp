@@ -65,5 +65,110 @@ void Matrix::set(int r, int c, double val)
 // of Matrix back
 Matrix Matrix::T()
 {
-    return Matrix(this->num_cols, this->num_rows, false);
+    Matrix t {Matrix(this->num_cols, this->num_rows, false)};
+    // set the values for the transpose
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0; c<this->num_cols; c++)
+        {
+            t.set(c,r,this->values[r][c]);
+        }
+    }
+    return t;
+}
+
+// multiply an int scalar to the Matrix
+void Matrix::operator*(const int a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]*a;
+        }
+    }
+}
+
+// multiply a double scalar to the Matrix
+void Matrix::operator*(const double a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]*a;
+        }
+    }
+}
+
+// divide by an int scalar to the Matrix
+void Matrix::operator/(const int a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]/a;
+        }
+    }
+}
+
+// divide by a double scalar to the Matrix
+void Matrix::operator/(const double a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]/a;
+        }
+    }
+}
+
+// add an int scalar to the Matrix
+void Matrix::operator+(const int a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]+a;
+        }
+    }
+}
+
+// add a double scalar to the Matrix
+void Matrix::operator+(const double a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]+a;
+        }
+    }
+}
+
+// subtract an int scalar to the Matrix
+void Matrix::operator-(const int a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]-a;
+        }
+    }
+}
+
+// subtract a double scalar to the Matrix
+void Matrix::operator-(const double a)
+{
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            this->values[r][c] = this->values[r][c]-a;
+        }
+    }
 }

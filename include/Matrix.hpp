@@ -20,5 +20,14 @@ class Matrix
         void show();
         void set(int, int, double);
         Matrix T();
+        // operators * / + -
+        void operator*(int);
+        void operator*(double);
+        void operator/(int);
+        void operator/(double);
+        void operator+(int);
+        void operator+(double);
+        void operator-(int);
+        void operator-(double);
 };
 #endif
