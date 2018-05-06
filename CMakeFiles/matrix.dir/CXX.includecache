@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/basti/Desktop/cpp/Matrix/include/Matrix.hpp
+vector
+-
+memory
+-
+
+/home/basti/Desktop/cpp/Matrix/src/Matrix.cpp
+vector
+-
+iostream
+-
+memory
+-
+random
+-
+../include/Matrix.hpp
+/home/basti/Desktop/cpp/Matrix/include/Matrix.hpp
+
+/home/basti/Desktop/cpp/Matrix/src/matrix.cpp
+vector
+-
+iostream
+-
+memory
+-
+../include/Matrix.hpp
+/home/basti/Desktop/cpp/Matrix/include/Matrix.hpp
+
