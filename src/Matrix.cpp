@@ -28,7 +28,8 @@ Matrix::Matrix(int rows, int cols, bool randomized)
                 double val = dis(gen);
                 current.push_back(val);
             } else {
-                current.push_back(0.0);
+                // init to 1.0 for layer initialization
+                current.push_back(1.0);
             }
         }
         this->values.push_back(current);
