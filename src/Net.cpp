@@ -82,11 +82,18 @@ GRADIENT = deltaWeights = lr * error * derive(layer) x weights.T
 */
 float Net::backpropagate(Matrix &target)
 {
+    float learning_rate = 0.01; // this needs to be set differently TODO
     // output error
     Matrix output_error = this->output_layer.sub(target);
+    this->derive(this->output_layer);
+    Matrix deltas = output_error.mult(this->output_layer);
+    deltas * learning_rate;
+    Matrix Tdelta = deltas.T();
+    // update output weights
+    Matrix dotproduct = this->weights_ho.dot(Tdelta);
 
-    std::cout << "Output Error:" << std::endl;
-    output_error.show();
+    std::cout << "new Weights:" << std::endl;
+    dotproduct.show();
 
 
     float error(42.0);

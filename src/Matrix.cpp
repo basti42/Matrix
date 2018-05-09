@@ -217,3 +217,39 @@ Matrix Matrix::sub(Matrix &other)
     }
     return result;
 }
+
+// add one matrix from another elementwise
+// return a new Matrix with the result
+Matrix Matrix::add(Matrix &other)
+{
+    if (this->num_rows != other.getRows() ||
+        this->num_cols != other.getCols())
+    { std::cerr << "Dimension missmatch for Addition!" << std::endl; }
+    Matrix result{this->num_rows, this->num_cols, false};
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            result.set(r,c, other.get(r,c) + this->get(r,c));
+        }
+    }
+    return result;
+}
+
+// multiply two matrices element wise
+// return a new Matrix with the result
+Matrix Matrix::mult(Matrix &other)
+{
+    if (this->num_rows != other.getRows() ||
+        this->num_cols != other.getCols())
+    { std::cerr << "Dimension missmatch for elementwise Multiplication!" << std::endl; }
+    Matrix result{this->num_rows, this->num_cols, false};
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            result.set(r,c, other.get(r,c) * this->get(r,c));
+        }
+    }
+    return result;
+}

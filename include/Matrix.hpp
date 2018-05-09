@@ -33,5 +33,8 @@ class Matrix
         // matrix multiplication and operations
         Matrix dot(Matrix&);
         Matrix sub(Matrix&);
+        Matrix add(Matrix&);
+        Matrix mult(Matrix&);
+
 };
 #endif
