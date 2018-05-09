@@ -62,6 +62,11 @@ void Matrix::set(int r, int c, double val)
     }
 }
 
+float Matrix::get(int r, int c)
+{
+    return this->values[r][c];
+}
+
 // transpose the Matrix and return a new instance
 // of Matrix back
 Matrix Matrix::T()
@@ -193,5 +198,22 @@ Matrix Matrix::dot(Matrix &other)
     }
 
     return product;
+}
 
+// subtract one matrix from another
+// return a new Matrix with the result
+Matrix Matrix::sub(Matrix &other)
+{
+    if (this->num_rows != other.getRows() ||
+        this->num_cols != other.getCols())
+    { std::cerr << "Dimension missmatch for Subtraction!" << std::endl; }
+    Matrix result{this->num_rows, this->num_cols, false};
+    for (int r=0;r<this->num_rows; r++)
+    {
+        for (int c=0;c<this->num_cols; c++)
+        {
+            result.set(r,c, other.get(r,c) - this->get(r,c));
+        }
+    }
+    return result;
 }

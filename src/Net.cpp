@@ -42,6 +42,22 @@ void Net::activate(Matrix &layer)
 }
 
 /*
+    derivative of fast sigmoid:
+    f'(x) = x / (1 - x)
+*/
+void Net::derive(Matrix &layer)
+{
+    for (int i=0;i<layer.getRows(); i++)
+    {
+        for (int j=0; j<layer.getCols(); j++)
+        {
+            std::vector<std::vector<double> > vals = layer.getValues();
+            layer.set(i,j, vals[i][j] / (1 - vals[i][j]));
+        }
+    }
+}
+
+/*
     feed forwardm passing inputs through the net
 */
 Matrix Net::feedforward(Matrix &data)
@@ -59,4 +75,20 @@ Matrix Net::feedforward(Matrix &data)
     this->activate(o_layer);
     this->setOutputLayer(o_layer);
     return o_layer;
+}
+
+/*
+GRADIENT = deltaWeights = lr * error * derive(layer) x weights.T
+*/
+float Net::backpropagate(Matrix &target)
+{
+    // output error
+    Matrix output_error = this->output_layer.sub(target);
+
+    std::cout << "Output Error:" << std::endl;
+    output_error.show();
+
+
+    float error(42.0);
+    return error;
 }

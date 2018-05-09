@@ -50,6 +50,11 @@ int main(int argc, char** argv)
     d.set(0,4,100);
     net.feedforward(d);
 
+    Matrix t{1,3,false};
+    t.set(0,0,4.0);
+    t.set(0,1,3.0);
+    t.set(0,2,2.0);
+
     std::cout << "Input Layer: " << std::endl;
     net.getInputLayer().show();
 
@@ -65,5 +70,5 @@ int main(int argc, char** argv)
     std::cout << "Output Layer: " << std::endl;
     net.getOutputLayer().show();
 
-
+    net.backpropagate(t);
 }

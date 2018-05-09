@@ -19,8 +19,9 @@ class Matrix
         std::vector<std::vector<double> > getValues(){ return this->values; }
         void show();
         void set(int, int, double);
+        float get(int, int);
         Matrix T();
-        // operators * / + -
+        // operators * / + - for scalars
         void operator*(int);
         void operator*(double);
         void operator/(int);
@@ -29,7 +30,8 @@ class Matrix
         void operator+(double);
         void operator-(int);
         void operator-(double);
-        // matrix multiplication
+        // matrix multiplication and operations
         Matrix dot(Matrix&);
+        Matrix sub(Matrix&);
 };
 #endif

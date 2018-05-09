@@ -16,6 +16,7 @@ class Net
         Matrix weights_ho;
 
         void activate(Matrix&);
+        void derive(Matrix&);
 
     public:
         Net(int, int, int);
@@ -31,6 +32,7 @@ class Net
         Matrix getOutputLayer(){ return this->output_layer; }
 
         Matrix feedforward(Matrix&);
+        float backpropagate(Matrix&);
 };
 
 #endif
