@@ -85,6 +85,9 @@ float Net::backpropagate(Matrix &target)
     float learning_rate = 0.01; // this needs to be set differently TODO
     // output error
     Matrix output_error = this->output_layer.sub(target);
+    double total_error = output_error.mean();
+    std::cout << "Total Error: " << total_error << std::endl;
+
     this->derive(this->output_layer);
     Matrix deltas = output_error.mult(this->output_layer);
     deltas * learning_rate;

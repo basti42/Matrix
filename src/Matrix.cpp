@@ -253,3 +253,20 @@ Matrix Matrix::mult(Matrix &other)
     }
     return result;
 }
+
+// calculating and returning then mean
+// of the Matrix ( use-case: averaging output error )
+double Matrix::mean()
+{
+    double result(0.0);
+    int total = this->num_rows + this->num_cols;
+
+    for (int r=0; r<this->num_rows; r++)
+    {
+        for (int c=0; c<this->num_cols; c++)
+        {
+            result += this->get(r,c);
+        }
+    }
+    return result / total;
+}

@@ -30,11 +30,14 @@ class Matrix
         void operator+(double);
         void operator-(int);
         void operator-(double);
-        // matrix multiplication and operations
+        // matrix calculation operations
         Matrix dot(Matrix&);
         Matrix sub(Matrix&);
         Matrix add(Matrix&);
         Matrix mult(Matrix&);
+        // some more claculations, on this (mean, etc)
+        Matrix mean();
+
 
 };
 #endif
