@@ -36,7 +36,7 @@ class Matrix
         Matrix add(Matrix&);
         Matrix mult(Matrix&);
         // some more claculations, on this (mean, etc)
-        Matrix mean();
+        double mean();
 
 
 };
